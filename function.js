@@ -2,6 +2,7 @@
 const dictionaryList = document.getElementById('dictionary-list');
 const searchInput = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
+const refreshBtn = document.getElementById('refresh-btn');
 const themeToggle = document.getElementById('theme-toggle');
 const addWordBtn = document.getElementById('add-word-btn');
 const wordModal = document.getElementById('word-modal');
@@ -9,15 +10,29 @@ const closeModal = document.getElementById('close-modal');
 const wordForm = document.getElementById('word-form');
 const totalWordsElement = document.getElementById('total-words');
 const displayedWordsElement = document.getElementById('displayed-words');
+const randomCountElement = document.getElementById('random-count');
+
+// 状态变量
+let isSearching = false;
+const RANDOM_WORD_COUNT = 10;
+
+// 获取随机单词
+function getRandomWords(words, count) {
+    if (words.length <= count) return words.slice();
+
+    const shuffled = [...words].sort(() => 0.5 - Math.random());
+    return shuffled.slice(0, count);
+}
 
 // 更新单词统计信息
 function updateWordStats(displayedCount) {
     totalWordsElement.textContent = dictionaryData.length;
     displayedWordsElement.textContent = displayedCount;
+    randomCountElement.textContent = RANDOM_WORD_COUNT;
 }
 
 // 渲染词典列表
-function renderDictionaryList(words) {
+function renderDictionaryList(words, isRandom = false) {
     dictionaryList.innerHTML = '';
 
     if (words.length === 0) {
@@ -26,7 +41,9 @@ function renderDictionaryList(words) {
         return;
     }
 
-    words.forEach(wordData => {
+    const wordsToDisplay = isRandom ? getRandomWords(words, RANDOM_WORD_COUNT) : words;
+
+    wordsToDisplay.forEach(wordData => {
         const wordCard = document.createElement('div');
         wordCard.className = 'word-card';
 
@@ -56,7 +73,7 @@ function renderDictionaryList(words) {
         dictionaryList.appendChild(wordCard);
     });
 
-    updateWordStats(words.length);
+    updateWordStats(wordsToDisplay.length);
 }
 
 // 搜索功能
@@ -64,16 +81,26 @@ function searchWords() {
     const searchTerm = searchInput.value.toLowerCase().trim();
 
     if (searchTerm === '') {
-        renderDictionaryList(dictionaryData);
+        isSearching = false;
+        renderDictionaryList(dictionaryData, true);
         return;
     }
 
+    isSearching = true;
     const filteredWords = dictionaryData.filter(wordData =>
         wordData.word.toLowerCase().includes(searchTerm) ||
         wordData.definition.toLowerCase().includes(searchTerm)
     );
 
-    renderDictionaryList(filteredWords);
+    renderDictionaryList(filteredWords, false);
+}
+
+// 刷新随机单词
+function refreshRandomWords() {
+    isSearching = false;
+    searchInput.value = '';
+    renderDictionaryList(dictionaryData, true);
+    showNotification("已刷新随机单词");
 }
 
 // 切换主题
@@ -112,7 +139,11 @@ function addNewWord(event) {
     dictionaryData.push(newWord);
 
     // 重新渲染列表
-    renderDictionaryList(dictionaryData);
+    if (isSearching) {
+        searchWords();
+    } else {
+        renderDictionaryList(dictionaryData, true);
+    }
 
     // 关闭模态框
     closeWordModal();
@@ -132,19 +163,6 @@ function showNotification(message) {
     const notification = document.createElement('div');
     notification.className = 'notification';
     notification.textContent = message;
-    notification.style.cssText = `
-                position: fixed;
-                top: 20px;
-                left: 50%;
-                transform: translateX(-50%);
-                background-color: var(--accent-color);
-                color: white;
-                padding: 12px 20px;
-                border-radius: 8px;
-                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-                z-index: 1000;
-                animation: fadeInOut 3s forwards;
-            `;
 
     document.body.appendChild(notification);
 
@@ -156,9 +174,18 @@ function showNotification(message) {
     }, 3000);
 }
 
+// 初始化
+function init() {
+    // 模拟加载延迟
+    setTimeout(() => {
+        renderDictionaryList(dictionaryData, true);
+    }, 500);
+}
+
 // 事件监听
 searchInput.addEventListener('input', searchWords);
 searchBtn.addEventListener('click', searchWords);
+refreshBtn.addEventListener('click', refreshRandomWords);
 themeToggle.addEventListener('click', toggleTheme);
 addWordBtn.addEventListener('click', openWordModal);
 closeModal.addEventListener('click', closeWordModal);
@@ -171,5 +198,5 @@ wordModal.addEventListener('click', (event) => {
     }
 });
 
-// 初始化渲染
-renderDictionaryList(dictionaryData);
+// 初始化应用
+init();
