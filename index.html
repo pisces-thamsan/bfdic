@@ -19,7 +19,7 @@
             <h1>本弗尔语词典&nbsp;Diarista'ze&nbsp;Lunar&nbsp;Benfour</h1>
             <button class="theme-toggle" id="theme-toggle">🌙</button>
         </header>
-
+        
         <div class="stats-container" id="stats-container">
             <div class="stat-item">
                 <span class="stat-number" id="total-words">0</span>
@@ -29,15 +29,24 @@
                 <span class="stat-number" id="displayed-words">0</span>
                 <div class="stat-label">显示单词数</div>
             </div>
+            <div class="stat-item">
+                <span class="stat-number" id="random-count">10</span>
+                <div class="stat-label">随机显示数</div>
+            </div>
         </div>
-
-        <div class="search-container">
-            <input type="text" id="search" placeholder="搜索单词...">
-            <button id="search-btn"><i class="fas fa-search"></i></button>
+        
+        <div class="controls-container">
+            <div class="search-container">
+                <input type="text" id="search" placeholder="搜索单词...">
+                <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <button id="refresh-btn" title="随机刷新单词"><i class="fas fa-sync-alt"></i></button>
         </div>
-
+        
         <div class="dictionary-list" id="dictionary-list">
-            <!-- 词条将通过JavaScript动态添加 -->
+            <div class="loading">
+                <div class="spinner"></div>
+            </div>
         </div>
     </div>
 
@@ -47,6 +56,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h2 class="modal-title">添加新词条</h2>
+                <span class="random-badge">随机显示10个单词</span>
                 <button class="close-modal" id="close-modal">&times;</button>
             </div>
             <form id="word-form">
@@ -125,5 +135,4 @@
     <script src="function.js"></script>
 
 </body>
-
 </html>
