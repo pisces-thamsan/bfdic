@@ -48,5 +48,75 @@ let dictionaryData = [
         grammaticalCase: "宾格",
         definition: "谁（who的宾格）",
         example: "Whom did you see at the party?"
+    },
+    {
+        word: "ubiquitous",
+        phonetic: "/juːˈbɪkwɪtəs/",
+        partOfSpeech: "adj.",
+        definition: "无所不在的，普遍存在的",
+        example: "Smartphones have become ubiquitous in modern society."
+    },
+    {
+        word: "eloquent",
+        phonetic: "/ˈeləkwənt/",
+        partOfSpeech: "adj.",
+        definition: "雄辩的，有说服力的；善于表达的",
+        example: "Her eloquent speech moved the entire audience."
+    },
+    {
+        word: "melancholy",
+        phonetic: "/ˈmelənkəli/",
+        partOfSpeech: "n.",
+        definition: "忧郁，悲伤",
+        example: "There's a sense of melancholy in his music."
+    },
+    {
+        word: "paradigm",
+        phonetic: "/ˈpærədaɪm/",
+        partOfSpeech: "n.",
+        definition: "范例，示例；模式",
+        example: "This study represents a paradigm shift in our understanding of the disease."
+    },
+    {
+        word: "esoteric",
+        phonetic: "/ˌesəˈterɪk/",
+        partOfSpeech: "adj.",
+        definition: "深奥的，难懂的；只有内行才懂的",
+        example: "He studies esoteric philosophical texts."
+    },
+    {
+        word: "pragmatic",
+        phonetic: "/præɡˈmætɪk/",
+        partOfSpeech: "adj.",
+        definition: "务实的，实用的",
+        example: "We need to take a pragmatic approach to solving this problem."
+    },
+    {
+        word: "ambiguous",
+        phonetic: "/æmˈbɪɡjuəs/",
+        partOfSpeech: "adj.",
+        definition: "含糊的，不明确的；有歧义的",
+        example: "His instructions were ambiguous and open to interpretation."
+    },
+    {
+        word: "resilient",
+        phonetic: "/rɪˈzɪliənt/",
+        partOfSpeech: "adj.",
+        definition: "有弹性的；能迅速恢复的",
+        example: "Children are often more resilient than adults in adapting to new environments."
+    },
+    {
+        word: "verbose",
+        phonetic: "/vɜːˈbəʊs/",
+        partOfSpeech: "adj.",
+        definition: "冗长的，啰嗦的",
+        example: "His writing style is often verbose and could benefit from editing."
+    },
+    {
+        word: "diligent",
+        phonetic: "/ˈdɪlɪdʒənt/",
+        partOfSpeech: "adj.",
+        definition: "勤奋的，细致的",
+        example: "She is a diligent worker who always completes her tasks on time."
     }
 ];
