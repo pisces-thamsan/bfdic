@@ -7,6 +7,14 @@ const addWordBtn = document.getElementById('add-word-btn');
 const wordModal = document.getElementById('word-modal');
 const closeModal = document.getElementById('close-modal');
 const wordForm = document.getElementById('word-form');
+const totalWordsElement = document.getElementById('total-words');
+const displayedWordsElement = document.getElementById('displayed-words');
+
+// 更新单词统计信息
+function updateWordStats(displayedCount) {
+    totalWordsElement.textContent = dictionaryData.length;
+    displayedWordsElement.textContent = displayedCount;
+}
 
 // 渲染词典列表
 function renderDictionaryList(words) {
@@ -14,6 +22,7 @@ function renderDictionaryList(words) {
 
     if (words.length === 0) {
         dictionaryList.innerHTML = '<div class="no-results">未找到匹配的单词</div>';
+        updateWordStats(0);
         return;
     }
 
@@ -46,6 +55,8 @@ function renderDictionaryList(words) {
 
         dictionaryList.appendChild(wordCard);
     });
+
+    updateWordStats(words.length);
 }
 
 // 搜索功能
@@ -97,9 +108,52 @@ function addNewWord(event) {
         example: document.getElementById('example').value
     };
 
+    // 添加到数据数组
     dictionaryData.push(newWord);
+
+    // 重新渲染列表
     renderDictionaryList(dictionaryData);
+
+    // 关闭模态框
     closeWordModal();
+
+    // 显示添加成功的反馈
+    showNotification(`"${newWord.word}" 已成功添加到词典`);
+}
+
+// 显示通知
+function showNotification(message) {
+    // 移除现有的通知
+    const existingNotification = document.querySelector('.notification');
+    if (existingNotification) {
+        existingNotification.remove();
+    }
+
+    const notification = document.createElement('div');
+    notification.className = 'notification';
+    notification.textContent = message;
+    notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background-color: var(--accent-color);
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+                z-index: 1000;
+                animation: fadeInOut 3s forwards;
+            `;
+
+    document.body.appendChild(notification);
+
+    // 3秒后自动移除
+    setTimeout(() => {
+        if (notification.parentNode) {
+            notification.parentNode.removeChild(notification);
+        }
+    }, 3000);
 }
 
 // 事件监听
