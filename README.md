@@ -1,2 +1,0 @@
-# bfdic
-Benfourian Dictionary
