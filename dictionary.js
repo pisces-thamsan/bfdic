@@ -4,7 +4,7 @@ let dictionaryData = [
     {word: "Alueté", phonetic: "/ˈʌlɯtʰ/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "犁宿星系；犁辕座", example: "Gericod Alueté tias!<br>欢迎来到犁宿星系！"},
     {word: "Benfoure", phonetic: "/ˈbɛnfɔuɻ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "本弗尔；本弗尔王国", example: "Gericod Benfoure tias!<br>欢迎来到本弗尔王国！"},
     {word: "Eirine", phonetic: "/ɛiˈɻʌinɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "我", example: "Eirine necor et.<br>我是人。"},
-    {word: "neocre", phonetic: "/ni'kʰɔɻɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "人；人类", example: "Coyare necore<br>人类社会"},
+    {word: "necore", phonetic: "/ni'kʰɔɻɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "人；人类", example: "Coyare necore<br>人类社会"},
     {word: "Jogul", phonetic: "/ˈdʒɔkul/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "（本弗尔神话&珊教神话中的）使者；卿", example: "Benfou Montoré Jogul<br>梧桐十二卿"},
     {word: "zalone", phonetic: "/zʌˈlɔnɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "沙；沙子；沙粒；硅；硅元素", example: "Màf zalone musbla scola daze musblitam dolént zalonseol aposisint zalon moš rimar.<br>每一粒沙都囚禁着一个世界，而世界本身，不过是另一片更辽阔沙海中的一粒沙。"},
     {word: "zalon", phonetic: "/zʌˈlɔn/", partOfSpeech: "n.", grammaticalCase: "宾格", definition: "沙；沙子；沙粒；硅；硅元素", example: "Dal Musblae zalon et.<br>世界是一粒沙子。"},
