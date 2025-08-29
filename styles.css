@@ -1,0 +1,342 @@
+:root {
+    --primary-color: #4a6fa5;
+    --secondary-color: #6b8cbb;
+    --accent-color: #ff6b6b;
+    --background-color: #f5f7fa;
+    --card-background: #ffffff;
+    --text-color: #333333;
+    --border-color: #e1e4e8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode {
+    --primary-color: #6b8cbb;
+    --secondary-color: #8fa9cf;
+    --accent-color: #ff8e8e;
+    --background-color: #1a1a2e;
+    --card-background: #242439;
+    --text-color: #e6e6e6;
+    --border-color: #3a3a4a;
+    --shadow-color: rgba(0, 0, 0, 0.3);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    padding: 15px;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid var(--primary-color);
+    position: relative;
+}
+
+h1 {
+    font-size: 1.8rem;
+    color: var(--primary-color);
+}
+
+.search-container {
+    display: flex;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+#search {
+    flex: 1;
+    padding: 14px 15px;
+    border: 2px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 1rem;
+    outline: none;
+    background-color: var(--card-background);
+    color: var(--text-color);
+}
+
+#search:focus {
+    border-color: var(--primary-color);
+}
+
+#search-btn {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    height: calc(100% - 10px);
+    padding: 0 15px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+#search-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.dictionary-list {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-bottom: 80px;
+}
+
+.word-card {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 20px;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    transition: transform 0.2s;
+}
+
+.word-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px var(--shadow-color);
+}
+
+.word-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 12px;
+    flex-wrap: wrap;
+}
+
+.word-title {
+    font-size: 1.6rem;
+    color: var(--primary-color);
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.phonetic {
+    color: var(--secondary-color);
+    font-style: italic;
+    font-size: 0.95rem;
+}
+
+.part-of-speech {
+    font-weight: bold;
+    margin-top: 8px;
+    color: var(--secondary-color);
+    font-size: 0.95rem;
+}
+
+.grammar-info {
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    flex-wrap: wrap;
+}
+
+.grammar-tag {
+    background-color: var(--secondary-color);
+    color: white;
+    padding: 4px 10px;
+    border-radius: 15px;
+    font-size: 0.8rem;
+}
+
+.definition {
+    margin-left: 5px;
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.example {
+    margin-left: 15px;
+    font-style: italic;
+    color: var(--secondary-color);
+    border-left: 2px solid var(--secondary-color);
+    padding-left: 10px;
+    margin-top: 8px;
+}
+
+.theme-toggle {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    padding: 5px;
+}
+
+.no-results {
+    text-align: center;
+    padding: 30px;
+    color: var(--secondary-color);
+    font-style: italic;
+}
+
+.add-word-btn {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--accent-color);
+    color: white;
+    border: none;
+    font-size: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--card-background);
+    border-radius: 12px;
+    padding: 25px;
+    width: 90%;
+    max-width: 500px;
+    max-height: 80vh;
+    overflow-y: auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--text-color);
+    cursor: pointer;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: var(--primary-color);
+}
+
+.form-control {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.form-select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    background-color: var(--card-background);
+    color: var(--text-color);
+    font-size: 1rem;
+}
+
+.btn-primary {
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    width: 100%;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: var(--secondary-color);
+}
+
+.grammar-options {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+    margin-top: 10px;
+}
+
+@media (min-width: 768px) {
+    body {
+        padding: 20px;
+        font-size: 17px;
+    }
+
+    .container {
+        max-width: 700px;
+    }
+
+    .grammar-options {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .word-title {
+        font-size: 1.4rem;
+    }
+
+    .grammar-options {
+        grid-template-columns: 1fr;
+    }
+
+    .modal-content {
+        padding: 15px;
+    }
+}
