@@ -1,6 +1,14 @@
 // 词典数据（改成let使其可以被重新赋值）
 let dictionaryData = [
     {
+        word: "Benfoure",
+        phonetic: "/ˈbɛnfɔuɻ/",
+        partOfSpeech: "n.",
+        grammaticalCase: "主格",
+        definition: "本弗尔；本弗尔王国",
+        example: "Gericod Benfoure tias! 欢迎来到本弗尔王国！"
+    },
+    {
         word: "Eirine",
         phonetic: "/ɛiˈɻʌinɛ/",
         partOfSpeech: "n.",
