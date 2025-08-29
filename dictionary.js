@@ -1,21 +1,9 @@
 // 词典数据（改成let使其可以被重新赋值）
 let dictionaryData = [
-    {
-        word: "Benfoure",
-        phonetic: "/ˈbɛnfɔuɻ/",
-        partOfSpeech: "n.",
-        grammaticalCase: "主格",
-        definition: "本弗尔；本弗尔王国",
-        example: "Gericod Benfoure tias! 欢迎来到本弗尔王国！"
-    },
-    {
-        word: "Eirine",
-        phonetic: "/ɛiˈɻʌinɛ/",
-        partOfSpeech: "n.",
-        grammaticalCase: "主格",
-        definition: "我",
-        example: "Eirine necore et. 我是人。"
-    },
+    {word: "Benfoure", phonetic: "/ˈbɛnfɔuɻ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "本弗尔；本弗尔王国", example: "Gericod Benfoure tias! 欢迎来到本弗尔王国！"},
+    {word: "moš", phonetic: "/mɔʃ/", partOfSpeech: "num./adj.", grammaticalCase: "基数词", definition: "一，一个；一个的，单独的", example: "Moš necore cinisó tias. 我一个人来到城里面。 "},
+    {word: "Eirine", phonetic: "/ɛiˈɻʌinɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "我", example: "Eirine necore et. 我是人。"},
+    {word: "Jogul", phonetic: "/ˈdʒɔkul/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "（本弗尔神话&珊教神话中的）使者；卿", example: "Benfou Montoré Jogul 梧桐十二卿"},
     {
         word: "serendipity",
         phonetic: "/ˌserənˈdɪpəti/",
