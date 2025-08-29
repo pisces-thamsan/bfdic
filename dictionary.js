@@ -1,12 +1,13 @@
 // 词典数据（改成let使其可以被重新赋值）
 let dictionaryData = [
-    {word: "Benfoure", phonetic: "/ˈbɛnfɔuɻ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "本弗尔；本弗尔王国", example: "Gericod Benfoure tias! 欢迎来到本弗尔王国！"},
-    {word: "moš", phonetic: "/mɔʃ/", partOfSpeech: "num./adj.", grammaticalCase: "基数词", definition: "一，一个；一个的，单独的", example: "Moš necore cinisó tias. 我一个人来到城里面。"},
+    {word: "Benfoure", phonetic: "/ˈbɛnfɔuɻ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "本弗尔；本弗尔王国", example: "Gericod Benfoure tias!<br>欢迎来到本弗尔王国！"},
+    {word: "moš", phonetic: "/mɔʃ/", partOfSpeech: "num./adj.", grammaticalCase: "基数词", definition: "一，一个；一个的，单独的", example: "Moš necore cinisó tias.<br>我一个人来到城里面。"},
     {word: "Eirine", phonetic: "/ɛiˈɻʌinɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "我", example: "Eirine necore et. 我是人。"},
-    {word: "Jogul", phonetic: "/ˈdʒɔkul/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "（本弗尔神话&珊教神话中的）使者；卿", example: "Benfou Montoré Jogul 梧桐十二卿"},
-    {word: "zalone", phonetic: "/zʌˈlɔnɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "沙；沙子；沙粒；硅；硅元素", example: "Maf zalone musbla scola daze musblitam<br>dolent zalonseol aposisint zalon mosh rimar.\n每一粒沙都囚禁着一个世界，而世界本身，不过是另一片更辽阔沙海中的一粒沙。"},
-    {word: "zalon", phonetic: "/zʌˈlɔn/", partOfSpeech: "n.", grammaticalCase: "宾格", definition: "沙；沙子；沙粒；硅；硅元素", example: "Dal Musblae zalon et. 世界是一粒沙子。"},
-    {word: "alcane", phonetic: "/ˈʌlkʰʌɪn/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "眼泪", example: "Kleš ragép ven gēnira hont alcane apont gēnira. 眉梢的汗珠啊，胜过眉下的眼泪。"},
+    {word: "Jogul", phonetic: "/ˈdʒɔkul/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "（本弗尔神话&珊教神话中的）使者；卿", example: "Benfou Montoré Jogul<br>梧桐十二卿"},
+    {word: "zalone", phonetic: "/zʌˈlɔnɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "沙；沙子；沙粒；硅；硅元素", example: "Màf zalone musbla scola daze musblitam dolént zalonseol aposisint zalon moš rimar.<br>每一粒沙都囚禁着一个世界，而世界本身，不过是另一片更辽阔沙海中的一粒沙。"},
+    {word: "zalon", phonetic: "/zʌˈlɔn/", partOfSpeech: "n.", grammaticalCase: "宾格", definition: "沙；沙子；沙粒；硅；硅元素", example: "Dal Musblae zalon et.<br>世界是一粒沙子。"},
+    {word: "alcane", phonetic: "/ˈʌlkʰʌɪn/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "眼泪", example: "Kleš ragép ven gēnira hont alcane apont gēnira.<br>眉梢的汗珠啊，胜过眉下的眼泪。"},
+    {word: "fulane", phonetic: "/fɯˈlʌnɛ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "猫", example: "Kleš fulane Eirinam et.<br>这是我的猫。"},
     {
         word: "take",
         phonetic: "/teɪk/",
