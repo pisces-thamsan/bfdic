@@ -1,5 +1,5 @@
-// 词典数据
-const dictionaryData = [
+// 词典数据（改成let使其可以被重新赋值）
+let dictionaryData = [
     {
         word: "serendipity",
         phonetic: "/ˌserənˈdɪpəti/",
