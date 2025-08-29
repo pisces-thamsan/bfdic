@@ -1,6 +1,14 @@
 // 词典数据（改成let使其可以被重新赋值）
 let dictionaryData = [
     {
+        word: "Eirine",
+        phonetic: "/ɛiˈɻʌinɛ/",
+        partOfSpeech: "n.",
+        grammaticalCase: "主格",
+        definition: "我",
+        example: "Eirine necore et. 我是人。"
+    },
+    {
         word: "serendipity",
         phonetic: "/ˌserənˈdɪpəti/",
         partOfSpeech: "n.",
