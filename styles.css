@@ -1,27 +1,28 @@
 :root {
-    --primary-color: #4a6fa5;
-    --secondary-color: #6b8cbb;
-    --accent-color: #ff6b6b;
-    --refresh-color: #6a9955;
-    --background-color: #f5f7fa;
-    --card-background: #ffffff;
-    --text-color: #333333;
-    --border-color: #e1e4e8;
+    --primary-color: #500000;
+    --secondary-color: #683119;
+    --accent-color: #ee8823;
+    --refresh-color: #9e3f31;
+    --background-color: #faf7f5;
+    --card-background: #fffafa;
+    --text-color: #222222;
+    --border-color: #e8e4e1;
     --shadow-color: rgba(0, 0, 0, 0.1);
-    --stats-bg: rgba(74, 111, 165, 0.1);
+    --stats-bg: rgba(165, 111, 74, 0.1);
 }
 
+/* 暗色模式 */
 .dark-mode {
-    --primary-color: #6b8cbb;
-    --secondary-color: #8fa9cf;
-    --accent-color: #ff8e8e;
-    --refresh-color: #7cbb67;
-    --background-color: #1a1a2e;
-    --card-background: #242439;
-    --text-color: #e6e6e6;
-    --border-color: #3a3a4a;
-    --shadow-color: rgba(0, 0, 0, 0.3);
-    --stats-bg: rgba(107, 140, 187, 0.15);
+    --primary-color: #e6e1e0;
+    --secondary-color: #d9a67a;
+    --accent-color: #885139;
+    --refresh-color: #c27743;
+    --background-color: #2d160c;
+    --card-background: #51372f;
+    --text-color: #e6e1e0;
+    --border-color: #9a8a80;
+    --shadow-color: rgba(0, 0, 0, 0.2);
+    --stats-bg: rgba(187, 140, 107, 0.25);
 }
 
 * {
@@ -29,7 +30,7 @@
     padding: 0;
     box-sizing: border-box;
     transition: background-color 0.3s, color 0.3s;
-    font-family: 'Times New Roman', 'Noto Serif SC', serif;
+    font-family: 'Times New Roman', 'Noto Serif SC', serif; /* 这里使用衬线字体，可以根据效果需求改为无衬线 */
 }
 
 body {
@@ -118,7 +119,7 @@ h1 {
     top: 5px;
     height: calc(100% - 10px);
     padding: 0 15px;
-    background-color: var(--primary-color);
+    background-color: var(--refresh-color);
     color: white;
     border: none;
     border-radius: 8px;
