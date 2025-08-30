@@ -18,7 +18,7 @@
     --accent-color: #885139;
     --refresh-color: #c27743;
     --background-color: #2d160c;
-    --card-background: #51372f;
+    --card-background: #45271f;
     --text-color: #e6e1e0;
     --border-color: #9a8a80;
     --shadow-color: rgba(0, 0, 0, 0.2);
@@ -113,6 +113,7 @@ h1 {
     border-color: var(--primary-color);
 }
 
+/* 搜索按钮（样式老改不成原来是因为你这**玩意（恼））
 #search-btn {
     position: absolute;
     right: 5px;
