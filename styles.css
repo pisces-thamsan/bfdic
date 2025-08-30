@@ -113,7 +113,7 @@ h1 {
     border-color: var(--primary-color);
 }
 
-/* 搜索按钮（样式老改不成原来是因为你这**玩意（恼））
+/* 搜索按钮（样式老改不成原来是因为你这**玩意（恼））*/
 #search-btn {
     position: absolute;
     right: 5px;
