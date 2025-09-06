@@ -12,12 +12,12 @@
 }
 
 .dark-mode {
-    --primary-color: #e6e1e0;
+    --primary-color: #d37e5d;
     --secondary-color: #d9a67a;
     --accent-color: #885139;
     --refresh-color: #c27743;
-    --background-color: #2d160c;
-    --card-background: #45271f;
+    --background-color: #210b01;
+    --card-background: #3a1c15;
     --text-color: #e6e1e0;
     --border-color: #9a8a80;
     --shadow-color: rgba(0, 0, 0, 0.2);
