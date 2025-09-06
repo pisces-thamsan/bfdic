@@ -11,7 +11,6 @@
     --stats-bg: rgba(165, 111, 74, 0.1);
 }
 
-/* 暗色模式 */
 .dark-mode {
     --primary-color: #e6e1e0;
     --secondary-color: #d9a67a;
@@ -30,11 +29,10 @@
     padding: 0;
     box-sizing: border-box;
     transition: background-color 0.3s, color 0.3s;
-    font-family: 'Times New Roman', 'Noto Serif SC', serif; /* 这里使用衬线字体，可以根据效果需求改为无衬线 */
+    font-family: 'Times New Roman', 'Noto Serif SC', serif;
 }
 
 body {
-    font-family: 'Times New Roman', 'Noto Serif SC', serif;
     background-color: var(--background-color);
     color: var(--text-color);
     line-height: 1.6;
@@ -113,7 +111,6 @@ h1 {
     border-color: var(--primary-color);
 }
 
-/* 搜索按钮（样式老改不成原来是因为你这**玩意（恼））*/
 #search-btn {
     position: absolute;
     right: 5px;
@@ -243,7 +240,7 @@ h1 {
     font-style: italic;
 }
 
-.add-word-btn {
+.settings-btn {
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -253,7 +250,7 @@ h1 {
     background-color: var(--accent-color);
     color: white;
     border: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
     cursor: pointer;
     display: flex;
@@ -293,18 +290,6 @@ h1 {
     margin-bottom: 20px;
     padding-bottom: 10px;
     border-bottom: 1px solid var(--border-color);
-    position: relative;
-}
-
-.random-badge {
-    position: absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    background-color: var(--refresh-color);
-    color: white;
-    padding: 4px 10px;
-    border-radius: 15px;
-    font-size: 0.8rem;
 }
 
 .modal-title {
@@ -318,6 +303,103 @@ h1 {
     font-size: 1.5rem;
     color: var(--text-color);
     cursor: pointer;
+}
+
+.setting-section {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.setting-section:last-child {
+    border-bottom: none;
+}
+
+.setting-title {
+    font-size: 1.2rem;
+    color: var(--primary-color);
+    margin-bottom: 15px;
+}
+
+.theme-switch {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked+.slider {
+    background-color: var(--primary-color);
+}
+
+input:checked+.slider:before {
+    transform: translateX(26px);
+}
+
+.random-count-options {
+    display: flex;
+    gap: 10px;
+}
+
+.count-option {
+    flex: 1;
+    text-align: center;
+}
+
+.count-option input[type="radio"] {
+    display: none;
+}
+
+.count-option label {
+    display: block;
+    padding: 10px;
+    background-color: var(--card-background);
+    border: 2px solid var(--border-color);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.count-option input[type="radio"]:checked+label {
+    background-color: var(--primary-color);
+    color: white;
+    border-color: var(--primary-color);
 }
 
 .form-group {
