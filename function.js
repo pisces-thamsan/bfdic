@@ -1,20 +1,46 @@
+// 词典数据（从JSON文件加载）
+let dictionaryData = [];
+
 // DOM元素
 const dictionaryList = document.getElementById('dictionary-list');
 const searchInput = document.getElementById('search');
 const searchBtn = document.getElementById('search-btn');
 const refreshBtn = document.getElementById('refresh-btn');
 const themeToggle = document.getElementById('theme-toggle');
-const addWordBtn = document.getElementById('add-word-btn');
-const wordModal = document.getElementById('word-modal');
-const closeModal = document.getElementById('close-modal');
+const settingsBtn = document.getElementById('settings-btn');
+const settingsModal = document.getElementById('settings-modal');
+const closeSettingsModal = document.getElementById('close-settings-modal');
 const wordForm = document.getElementById('word-form');
 const totalWordsElement = document.getElementById('total-words');
 const displayedWordsElement = document.getElementById('displayed-words');
 const randomCountElement = document.getElementById('random-count');
+const themeSwitch = document.getElementById('theme-switch');
+const randomCountOptions = document.querySelectorAll('input[name="random-count"]');
 
 // 状态变量
 let isSearching = false;
-const RANDOM_WORD_COUNT = 10;
+let userRandomCount = 10; // 默认值
+
+// 从JSON文件加载词典数据
+async function loadDictionaryData() {
+    try {
+        const response = await fetch('dictionary.json');
+        if (!response.ok) {
+            throw new Error('无法加载词典数据');
+        }
+        dictionaryData = await response.json();
+        return dictionaryData;
+    } catch (error) {
+        console.error('加载词典数据失败:', error);
+        // 使用默认数据作为备选
+        dictionaryData = [
+            { word: "Alueté", phonetic: "/ˈʌlɯtʰ/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "犁宿星系；犁辕座", example: "Gericod Alueté tias!<br>欢迎来到犁宿星系！" },
+            { word: "Benfoure", phonetic: "/ˈbɛnfɔuɻ/", partOfSpeech: "n.", grammaticalCase: "主格", definition: "本弗尔；本弗尔王国", example: "Gericod Benfoure tias!<br>欢迎来到本弗尔王国！" },
+            { word: "Jogul", phonetic: "/ˈdʒɔkul/", partOfSpeech: "n.", grammaticalCase: "主宾同形", definition: "（本弗尔神话&珊教神话中的）使者；卿", example: "Benfou Montoré Jogul<br>梧桐十二卿" }
+        ];
+        return dictionaryData;
+    }
+}
 
 // 获取随机单词
 function getRandomWords(words, count) {
@@ -28,7 +54,7 @@ function getRandomWords(words, count) {
 function updateWordStats(displayedCount) {
     totalWordsElement.textContent = dictionaryData.length;
     displayedWordsElement.textContent = displayedCount;
-    randomCountElement.textContent = RANDOM_WORD_COUNT;
+    randomCountElement.textContent = userRandomCount;
 }
 
 // 渲染词典列表
@@ -41,7 +67,7 @@ function renderDictionaryList(words, isRandom = false) {
         return;
     }
 
-    const wordsToDisplay = isRandom ? getRandomWords(words, RANDOM_WORD_COUNT) : words;
+    const wordsToDisplay = isRandom ? getRandomWords(words, userRandomCount) : words;
 
     wordsToDisplay.forEach(wordData => {
         const wordCard = document.createElement('div');
@@ -106,18 +132,43 @@ function refreshRandomWords() {
 // 切换主题
 function toggleTheme() {
     document.body.classList.toggle('dark-mode');
-    themeToggle.textContent = document.body.classList.contains('dark-mode') ? '☀️' : '🌙';
+    const isDarkMode = document.body.classList.contains('dark-mode');
+    themeToggle.textContent = isDarkMode ? '☀️' : '🌙';
+    themeSwitch.checked = isDarkMode;
+
+    // 保存主题偏好
+    localStorage.setItem('theme', isDarkMode ? 'dark' : 'light');
 }
 
-// 打开添加单词模态框
-function openWordModal() {
-    wordModal.style.display = 'flex';
+// 打开设置模态框
+function openSettingsModal() {
+    settingsModal.style.display = 'flex';
+
+    // 设置当前主题状态
+    themeSwitch.checked = document.body.classList.contains('dark-mode');
+
+    // 设置当前随机单词数量选项
+    document.querySelector(`input[name="random-count"][value="${userRandomCount}"]`).checked = true;
 }
 
-// 关闭添加单词模态框
-function closeWordModal() {
-    wordModal.style.display = 'none';
+// 关闭设置模态框
+function closeSettingsModalFunc() {
+    settingsModal.style.display = 'none';
     wordForm.reset();
+}
+
+// 更新随机单词数量
+function updateRandomCount(count) {
+    userRandomCount = parseInt(count);
+    randomCountElement.textContent = userRandomCount;
+
+    // 保存用户偏好
+    localStorage.setItem('randomCount', userRandomCount);
+
+    // 如果不是在搜索中，刷新显示
+    if (!isSearching) {
+        renderDictionaryList(dictionaryData, true);
+    }
 }
 
 // 添加新词条
@@ -146,7 +197,7 @@ function addNewWord(event) {
     }
 
     // 关闭模态框
-    closeWordModal();
+    closeSettingsModalFunc();
 
     // 显示添加成功的反馈
     showNotification(`"${newWord.word}" 已成功添加到词典`);
@@ -175,11 +226,24 @@ function showNotification(message) {
 }
 
 // 初始化
-function init() {
-    // 模拟加载延迟
-    setTimeout(() => {
-        renderDictionaryList(dictionaryData, true);
-    }, 500);
+async function init() {
+    // 加载用户偏好
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'dark') {
+        document.body.classList.add('dark-mode');
+        themeToggle.textContent = '☀️';
+    }
+
+    const savedRandomCount = localStorage.getItem('randomCount');
+    if (savedRandomCount) {
+        userRandomCount = parseInt(savedRandomCount);
+    }
+
+    // 加载词典数据
+    await loadDictionaryData();
+
+    // 渲染词典列表
+    renderDictionaryList(dictionaryData, true);
 }
 
 // 事件监听
@@ -187,14 +251,24 @@ searchInput.addEventListener('input', searchWords);
 searchBtn.addEventListener('click', searchWords);
 refreshBtn.addEventListener('click', refreshRandomWords);
 themeToggle.addEventListener('click', toggleTheme);
-addWordBtn.addEventListener('click', openWordModal);
-closeModal.addEventListener('click', closeWordModal);
+settingsBtn.addEventListener('click', openSettingsModal);
+closeSettingsModal.addEventListener('click', closeSettingsModalFunc);
 wordForm.addEventListener('submit', addNewWord);
 
+// 主题切换开关事件
+themeSwitch.addEventListener('change', toggleTheme);
+
+// 随机单词数量选项事件
+randomCountOptions.forEach(option => {
+    option.addEventListener('change', (e) => {
+        updateRandomCount(e.target.value);
+    });
+});
+
 // 点击模态框外部关闭
-wordModal.addEventListener('click', (event) => {
-    if (event.target === wordModal) {
-        closeWordModal();
+settingsModal.addEventListener('click', (event) => {
+    if (event.target === settingsModal) {
+        closeSettingsModalFunc();
     }
 });
 
