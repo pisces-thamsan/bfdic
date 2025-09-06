@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>本弗尔语词典&nbsp;-&nbsp;鱼窝</title>
+    <title>本弗尔语词典 - 鱼窝</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Times+New+Roman&display=swap">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Calibri&display=swap">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 
@@ -50,89 +48,120 @@
         </div>
     </div>
 
-    <button class="add-word-btn" id="add-word-btn">+</button>
+    <button class="settings-btn" id="settings-btn"><i class="fas fa-cog"></i></button>
 
-    <div class="modal" id="word-modal">
+    <div class="modal" id="settings-modal">
         <div class="modal-content">
             <div class="modal-header">
-                <h2 class="modal-title">添加</h2>
-                <span class="random-badge">随机显示10个单词</span>
-                <button class="close-modal" id="close-modal">&times;</button>
+                <h2 class="modal-title">设置</h2>
+                <button class="close-modal" id="close-settings-modal">&times;</button>
             </div>
-            <form id="word-form">
-                <div class="form-group">
-                    <label for="word">单词</label>
-                    <input type="text" id="word" class="form-control" required>
+            
+            <div class="setting-section">
+                <h3 class="setting-title">主题设置</h3>
+                <div class="theme-switch">
+                    <span>切换亮色/暗色模式</span>
+                    <label class="switch">
+                        <input type="checkbox" id="theme-switch">
+                        <span class="slider"></span>
+                    </label>
                 </div>
-                <div class="form-group">
-                    <label for="phonetic">音标</label>
-                    <input type="text" id="phonetic" class="form-control">
-                </div>
-                <div class="form-group">
-                    <label for="partOfSpeech">词性</label>
-                    <select id="partOfSpeech" class="form-select">
-                        <option value="n.">名词</option>
-                        <option value="v.">动词</option>
-                        <option value="adj.">形容词</option>
-                        <option value="adv.">副词</option>
-                        <option value="prep.">介词</option>
-                        <option value="conj.">连词</option>
-                        <option value="pron.">代词</option>
-                        <option value="interj.">感叹词</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>语法信息</label>
-                    <div class="grammar-options">
-                        <div>
-                            <label for="grammaticalCase">语法格</label>
-                            <select id="grammaticalCase" class="form-select">
-                                <option value="">-- 选择语法格 --</option>
-                                <option value="主格">主格</option>
-                                <option value="属格">属格</option>
-                                <option value="与格">与格</option>
-                                <option value="宾格">宾格</option>
-                                <option value="呼格">呼格</option>
-                                <option value="方位格">方位格</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="tense">时态</label>
-                            <select id="tense" class="form-select">
-                                <option value="">-- 选择时态 --</option>
-                                <option value="现在时">现在时</option>
-                                <option value="过去时">过去时</option>
-                                <option value="将来时">将来时</option>
-                                <option value="现在完成时">现在完成时</option>
-                                <option value="过去完成时">过去完成时</option>
-                                <option value="将来完成时">将来完成时</option>
-                            </select>
-                        </div>
-                        <div>
-                            <label for="voice">语态</label>
-                            <select id="voice" class="form-select">
-                                <option value="">-- 选择语态 --</option>
-                                <option value="主动">主动</option>
-                                <option value="被动">被动</option>
-                            </select>
-                        </div>
+            </div>
+            
+            <div class="setting-section">
+                <h3 class="setting-title">随机单词显示数量</h3>
+                <div class="random-count-options">
+                    <div class="count-option">
+                        <input type="radio" id="count-5" name="random-count" value="5">
+                        <label for="count-5">5</label>
+                    </div>
+                    <div class="count-option">
+                        <input type="radio" id="count-10" name="random-count" value="10" checked>
+                        <label for="count-10">10</label>
+                    </div>
+                    <div class="count-option">
+                        <input type="radio" id="count-20" name="random-count" value="20">
+                        <label for="count-20">20</label>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="definition">释义</label>
-                    <textarea id="definition" class="form-control" rows="3" required></textarea>
-                </div>
-                <div class="form-group">
-                    <label for="example">例句</label>
-                    <textarea id="example" class="form-control" rows="2"></textarea>
-                </div>
-                <button type="submit" class="btn-primary">添加词条</button>
-            </form>
+            </div>
+            
+            <div class="setting-section">
+                <h3 class="setting-title">添加词汇</h3>
+                <form id="word-form">
+                    <div class="form-group">
+                        <label for="word">单词</label>
+                        <input type="text" id="word" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phonetic">音标</label>
+                        <input type="text" id="phonetic" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="partOfSpeech">词性</label>
+                        <select id="partOfSpeech" class="form-select">
+                            <option value="n.">名词</option>
+                            <option value="v.">动词</option>
+                            <option value="adj.">形容词</option>
+                            <option value="adv.">副词</option>
+                            <option value="prep.">介词</option>
+                            <option value="conj.">连词</option>
+                            <option value="pron.">代词</option>
+                            <option value="interj.">感叹词</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>语法信息</label>
+                        <div class="grammar-options">
+                            <div>
+                                <label for="grammaticalCase">语法格</label>
+                                <select id="grammaticalCase" class="form-select">
+                                    <option value="">-- 选择语法格 --</option>
+                                    <option value="主格">主格</option>
+                                    <option value="属格">属格</option>
+                                    <option value="与格">与格</option>
+                                    <option value="宾格">宾格</option>
+                                    <option value="呼格">呼格</option>
+                                    <option value="方位格">方位格</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="tense">时态</label>
+                                <select id="tense" class="form-select">
+                                    <option value="">-- 选择时态 --</option>
+                                    <option value="现在时">现在时</option>
+                                    <option value="过去时">过去时</option>
+                                    <option value="将来时">将来时</option>
+                                    <option value="现在完成时">现在完成时</option>
+                                    <option value="过去完成时">过去完成时</option>
+                                    <option value="将来完成时">将来完成时</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label for="voice">语态</label>
+                                <select id="voice" class="form-select">
+                                    <option value="">-- 选择语态 --</option>
+                                    <option value="主动">主动</option>
+                                    <option value="被动">被动</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="definition">释义</label>
+                        <textarea id="definition" class="form-control" rows="3" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="example">例句</label>
+                        <textarea id="example" class="form-control" rows="2"></textarea>
+                    </div>
+                    <button type="submit" class="btn-primary">添加词条</button>
+                </form>
+            </div>
         </div>
     </div>
 
-    <script src="dictionary.js"></script>
     <script src="function.js"></script>
-
+    
 </body>
 </html>
