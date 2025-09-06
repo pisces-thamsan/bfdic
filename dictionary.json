@@ -13,7 +13,7 @@
     {"word": "fulane", "phonetic": "/fɯˈlʌnɛ/", "partOfSpeech": "n.", "grammaticalCase": "主格", "definition": "猫", "example": "Kleš fulane Eirinam et.<br>这是我的猫。"},
     {"word": "irise", "phonetic": "/i'ɹisɛ/", "partOfSpeech": "n.", "grammaticalCase": "主格", "definition": "死；死亡；破灭（iris的主格形式）", "example": "Necore iris metare.<br>人终有一死。"},
     {"word": "iris", "phonetic": "/i'ɹis/", "partOfSpeech": "n.", "grammaticalCase": "宾格", "definition": "死；死亡；破灭", "example": "Necore iris metare.<br>人终有一死。"},
-    {"word": "lucias", "phonetic": "/ˈlɯk̚ʃiʌs/", "partOfSpeech" "n.", "grammaticalCase": "主宾同形", "definition": "娱乐；消遣；露西亚（人名）", "example": "Aege ath lucias<br>当作娱乐一般"}, 
+    {"word": "lucias", "phonetic": "/ˈlɯk̚ʃiʌs/", "partOfSpeech": "n.", "grammaticalCase": "主宾同形", "definition": "娱乐；消遣；露西亚（人名）", "example": "Aege ath lucias<br>当作娱乐一般"}, 
     {"word": "necore", "phonetic": "/ni'kʰɔɻɛ/", "partOfSpeech": "n.", "grammaticalCase": "主格", "definition": "人；人类", "example": "Coyare necore<br>人类社会"},
     {"word": "zalone", "phonetic": "/zʌˈlɔnɛ/", "partOfSpeech": "n.", "grammaticalCase": "主格", "definition": "沙；沙子；沙粒；硅；硅元素", "example": "Màf zalone musbla scola daze musblitam dolént zalonseol aposisint zalon moš rimar.<br>每一粒沙都囚禁着一个世界，而世界本身，不过是另一片更辽阔沙海中的一粒沙。"},
     {"word": "zalon", "phonetic": "/zʌˈlɔn/", "partOfSpeech": "n.", "grammaticalCase": "宾格", "definition": "沙；沙子；沙粒；硅；硅元素", "example": "Dal Musblae zalon et.<br>世界是一粒沙子。"},
