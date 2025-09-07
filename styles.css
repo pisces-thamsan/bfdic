@@ -13,7 +13,7 @@
 
 .dark-mode {
     --primary-color: #d37e5d;
-    --secondary-color: #d9a67a;
+    --secondary-color: #e8cab0;
     --accent-color: #885139;
     --refresh-color: #c27743;
     --background-color: #210b01;
@@ -202,7 +202,7 @@ h1 {
 }
 
 .grammar-tag {
-    background-color: var(--secondary-color);
+    background-color: var(--refresh-color);
     color: white;
     padding: 4px 10px;
     border-radius: 15px;
