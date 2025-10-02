@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="zh-CN">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>本弗尔语词典 - 鱼窝</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@700&display=swap">
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Times+New+Roman&display=swap">
     <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
@@ -17,7 +20,7 @@
             <h1>Diarista'ze Benfoure</h1>
             <button class="theme-toggle" id="theme-toggle">🌙</button>
         </header>
-        
+
         <div class="stats-container" id="stats-container">
             <div class="stat-item">
                 <span class="stat-number" id="total-words">0</span>
@@ -32,7 +35,7 @@
                 <div class="stat-label">随机显示数</div>
             </div>
         </div>
-        
+
         <div class="controls-container">
             <div class="search-container">
                 <input type="text" id="search" placeholder="搜索单词/词义...">
@@ -40,7 +43,7 @@
             </div>
             <button id="refresh-btn" title="随机刷新单词"><i class="fas fa-sync-alt"></i></button>
         </div>
-        
+
         <div class="dictionary-list" id="dictionary-list">
             <div class="loading">
                 <div class="spinner"></div>
@@ -56,7 +59,7 @@
                 <h2 class="modal-title">设置</h2>
                 <button class="close-modal" id="close-settings-modal">&times;</button>
             </div>
-            
+
             <div class="setting-section">
                 <h3 class="setting-title">主题设置</h3>
                 <div class="theme-switch">
@@ -67,7 +70,7 @@
                     </label>
                 </div>
             </div>
-            
+
             <div class="setting-section">
                 <h3 class="setting-title">随机单词显示数量</h3>
                 <div class="random-count-options">
@@ -85,7 +88,21 @@
                     </div>
                 </div>
             </div>
-            
+
+            <!-- 在 settings-modal 中添加新的设置部分 -->
+            <div class="setting-section">
+                <h3 class="setting-title">导入/导出词典</h3>
+                <div class="import-export-buttons">
+                    <button type="button" class="btn-secondary" id="export-csv-btn">
+                        <i class="fas fa-download"></i> 导出为CSV
+                    </button>
+                    <button type="button" class="btn-secondary" id="import-csv-btn">
+                        <i class="fas fa-upload"></i> 从CSV导入
+                    </button>
+                    <input type="file" id="csv-file-input" accept=".csv" style="display: none;">
+                </div>
+            </div>
+
             <div class="setting-section">
                 <h3 class="setting-title">添加词汇</h3>
                 <form id="word-form">
@@ -162,6 +179,8 @@
     </div>
 
     <script src="function.js"></script>
-    
+    <script src="export.js"></script>
+
 </body>
+
 </html>
